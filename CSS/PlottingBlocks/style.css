@@ -1,0 +1,52 @@
+/*CSS reset settings here*/
+*{
+    margin: 0px;
+    padding: 0px;
+   }
+   #wrapper{
+    width: 950px;
+    background-color: silver;
+    margin: 0px auto;
+    /* my additions */
+    padding: 20px;
+   }
+   #header{
+    min-height: 150px;
+    background-color: green;
+    /* my additions */
+    margin-bottom: 20px;
+   }
+   #navigation{
+    min-height: 300px;
+    width: 200px;
+    background-color: blue;
+    /* my additions */
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+   }
+   #main_content{
+    min-height: 400px;
+    width: 700px;
+    background-color: red;
+    /* my additions */
+    display: inline-block;
+    padding: 12px;
+   }
+   .subcontents{
+    min-height: 200px;
+    width: 210px;
+    background-color: yellow;
+    /* my additions */
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+   }
+   #advertisement{
+    min-height: 120px;
+    width: 660px;
+    background-color: purple;
+    /* my additions */
+    margin-top: 10px;
+   }
+   
