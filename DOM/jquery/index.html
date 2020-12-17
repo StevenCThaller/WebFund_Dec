@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+        $(document).ready(function(){
+            // $("#container").html("<h1>Hello</h1>")
+            $("#container").html('<h4 class="someclassname">add to my shopping list</h4>')
+        
+            
+            $("#add_button").click(function(){
+                // where i can write the code for what i want to do
+                // when this button is clicked!
+                
+                // $("body").html("<h1>HELLO THERE!</h1><img src='https://media1.tenor.com/images/2eada1bbeb4ed4182079cf00070324a2/tenor.gif?itemid=13903117'>")
+                
+                var x = $("#item").val();
+                if(x != ""){
+                    $("#groceries").append(`<li class="grocery_item">${x}</li>`)
+                    $("#item").val("");
+                }
+            });
+
+            $(document).on("click", ".grocery_item", function(){
+                // $(this).remove(); // this will remove the ENTIRE element that was clicked on
+                $(this).toggleClass("strike-through");
+
+            })
+
+            $(document).on("contextmenu", function(e){
+                e.preventDefault();
+
+                alert("hijacked!");
+            })
+
+            // $(".grocery_item").click(function(){
+            //     alert("yep, you clicked it!");
+            //     // $(this).html("some text indicate strikethrough")
+            // })
+
+    
+            // $("#item").keypress(function(){
+            //     // get the value from the input
+            //     var input = $("#item").val();
+
+            //     // reverse it
+            //     var reversed = "";
+
+            //     for(var i = input.length-1; i>=0; i--) {
+            //         reversed += input[i];
+            //     }
+                
+
+            //     // set it back into the input
+            //     $("#item").val(reversed);
+            // });
+
+        })
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h3>you'll never catch me</h3>
+    </div>
+    <div id="shopping_list">
+        <div>
+            <label for="item">Item: </label>
+            <input type="text" name="item" id="item">
+            <button id="add_button">Add!</button>
+        </div>
+        <ul id="groceries"></ul>
+    </div>
+</body>
+</html>

@@ -23,3 +23,31 @@
 
 // Third: add half-dollar (50 cents) and dollar (100
 // cents) coins with 40 additional characters or less.
+
+function generateCoinChange(cents) {
+    var quarters = 0;
+    var dimes = 0;
+    var nickels = 0;
+    var pennies = 0;
+
+    while(cents > 0) {
+        if(cents >= 25) {
+            cents -= 25;
+            quarters++;
+        } else if(cents >= 10) {
+            cents -= 10;
+            dimes++;
+        } else if(cents >= 5) {
+            cents -= 5;
+            nickels++;
+        } else {
+            pennies = cents;
+            cents = 0;
+        }
+    }
+
+    console.log(`Quarters: ${quarters}\nDimes: ${dimes}\nNickels: ${nickels}\nPennies: ${pennies}`);
+}
+
+generateCoinChange(123);
+
