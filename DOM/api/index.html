@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("#dex_num_select").submit(function(e){
+                e.preventDefault();
+
+                var dNum = $("#which_mon").val();
+
+                $.get(`https://pokeapi.co/api/v2/pokemon/${dNum}`, function(response){
+                    console.log(response);
+                    $(".poke_name").text(response.name.toUpperCase())
+                    $("#dex_num").text(response.id)
+                    $("#poke_moves").html("");
+                    for(var move of response.moves) {
+                        $("#poke_moves").append(`<li>${move.move.name}</li>`)
+                    }
+
+                    $("#which_mon").val("");
+
+                    $("body").css("background-image", `url("${response.sprites.front_default}")`);
+                });
+            })
+ 
+
+        })
+    </script>
+</head>
+<body>
+    <form id="dex_num_select">
+        <label for="which_mon">Enter Pokedex Number: </label>
+        <input type="number" name="which_mon" id="which_mon">
+        <input type="submit" value="Go">
+    </form>
+    <h1><span id="dex_num"></span> - <span class="poke_name"></span></h1>
+    <section>
+        <h3><span class="poke_name"></span> learns the following moves</h3>
+        <ul id="poke_moves"></ul>
+    </section>
+</body>
+</html>
